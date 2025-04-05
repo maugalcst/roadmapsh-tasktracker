@@ -74,7 +74,9 @@ public class Task {
         this.updatedAt = updatedAt;
     }
 
-    public static void addTask() {}
+    public static void addTask() {
+
+    }
 
     public static void updateTask() {}
 
