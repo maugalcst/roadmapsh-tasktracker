@@ -1,15 +1,26 @@
 package org.maugalcst.tasktracker;
 
-import java.util.Scanner;
-
 public class TaskTracker {
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Ingresa argumento");
-        args[0] = scan.next();
+        if (args.length > 0) {
+            String command = args[0];
+            String command2 = args[1];
+            System.out.println("Comando ingresado: " + command2);
 
-        System.out.println(args[0]);
-
+            // Aquí puedes añadir lógica para manejar diferentes comandos
+            if (command.equals("add")) {
+                System.out.println("Se agregó el argumento: " + command2);
+                //Puedes implementar la lógica para agregar una tarea.
+            } else if (command.equals("list")){
+                System.out.println("Lista de comandos agregados:\n");
+                System.out.println(command2);
+                //Puedes implementar la lógica para listar tareas.
+            } else {
+                System.out.println("Comando desconocido.");
+            }
+        } else {
+            System.out.println("No se ingresaron argumentos.");
+        }
     }
 }
