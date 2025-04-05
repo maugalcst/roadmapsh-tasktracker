@@ -74,19 +74,19 @@ public class Task {
         this.updatedAt = updatedAt;
     }
 
-    public static void addTask() {
-
+    @Override
+    public String toString() {
+        return "Task:" + "\n" +
+                "id = " + id + "\n" +
+                "description = " + description + "\n" +
+                "status = " + status + "\n" +
+                "createdAt = " + createdAt + "\n" +
+                "updatedAt = " + updatedAt;
     }
 
-    public static void updateTask() {}
+    public static void markAsCompleted() {}
 
-    public static void deleteTask() {}
+    public static void markInProgress() {}
 
-    public static void listTasks() {}
 
-    public static void listCompletedTasks() {}
-
-    public static void listNotCompletedTasks() {}
-
-    public static void listInProgressTasks() {}
 }
