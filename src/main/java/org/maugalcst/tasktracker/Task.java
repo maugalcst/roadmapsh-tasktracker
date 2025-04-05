@@ -73,4 +73,18 @@ public class Task {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public static void addTask() {}
+
+    public static void updateTask() {}
+
+    public static void deleteTask() {}
+
+    public static void listTasks() {}
+
+    public static void listCompletedTasks() {}
+
+    public static void listNotCompletedTasks() {}
+
+    public static void listInProgressTasks() {}
 }
