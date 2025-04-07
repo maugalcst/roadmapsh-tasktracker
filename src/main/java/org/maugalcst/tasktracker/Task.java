@@ -9,37 +9,30 @@ public class Task {
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private static int nextId = 1;
 
-    public Task(int id) {
+    private Task(int id, String description, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-    }
-
-    public Task(int id, String description){
-        this(id);
         this.description = description;
-    }
-
-    public Task(int id, String description, String status){
-        this(id, description);
         this.status = status;
-    }
-
-    public Task(int id, String description, String status, LocalDateTime createdAt){
-        this(id, description, status);
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    public Task(int id, String description, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this(id, description, status, createdAt);
-        this.updatedAt = updatedAt;
+    public Task(String description, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this(nextId++, description, status, createdAt, updatedAt);
+    }
+
+    public Task(String description, String status){
+        this(description, status, null, null);
+    }
+
+    public Task(String description){
+        this(description, null, null, null);
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescription() {
@@ -76,17 +69,13 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task:" + "\n" +
-                "id = " + id + "\n" +
-                "description = " + description + "\n" +
-                "status = " + status + "\n" +
-                "createdAt = " + createdAt + "\n" +
-                "updatedAt = " + updatedAt;
+        return "{" +
+                "\"id\": " + id + ", " +
+                "\"description\": \"" + description + "\", " +
+                "\"status\": \"" + status + "\", " +
+                "\"createdAt\": \"" + createdAt + "\", " +
+                "\"updatedAt\": \"" + updatedAt + "\"" +
+                "}";
     }
-
-    public static void markAsCompleted() {}
-
-    public static void markInProgress() {}
-
 
 }

@@ -1,24 +1,46 @@
 package org.maugalcst.tasktracker;
 
+import java.io.*;
 import java.util.List;
 
 public class TaskStorage {
 
-    private List<Task> tareas;
+    private List<Task> tasks;
 
-    public TaskStorage(List<Task> tareas) {
-        this.tareas = tareas;
+    BufferedWriter writer = new BufferedWriter(new FileWriter("taskmanager.json"));
+    BufferedReader reader = new BufferedReader(new FileReader("taskmanager.json"));
+
+    public TaskStorage(List<Task> tasks) throws IOException {
+        this.tasks = tasks;
     }
 
     public List<Task> getTareas() {
-        return tareas;
+        return tasks;
     }
 
-    public static void listTasks() {}
+    public String loadTasks() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        try {
+            String line;
 
-    public static void listCompletedTasks() {}
+            while((line = reader.readLine()) != null) {
+                sb.append(line).append("\n");
 
-    public static void listNotCompletedTasks() {}
+            }
+            return sb.toString();
+        } catch (IOException e) {
+            throw new IOException(e.getMessage());
+        } finally {
+            reader.close();
+        }
+    }
 
-    public static void listInProgressTasks() {}
+    public void saveTasks(List<Task> tasks) throws IOException {
+        for (Task task : tasks) {
+            task.toString();
+            System.out.println("\n");
+        }
+    }
+
+
 }
